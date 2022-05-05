@@ -52,6 +52,7 @@ function loadBook(book) {
   bookAuthor.textContent = "Author: " + book.author;
   bookPages.textContent = "Pages: " + book.pages;
   bookRead.textContent = book.read ? "Read" : "Not Read";
+  bookElement.className = "book";
   bookElement.dataset.read = book.read;
   bookElement.append(bookTitle, bookAuthor, bookPages, bookRead);
   bookContainer.appendChild(bookElement);
