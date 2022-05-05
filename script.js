@@ -47,12 +47,12 @@ function loadBook(book) {
   let bookTitle = document.createElement("p");
   let bookAuthor = document.createElement("p");
   let bookPages = document.createElement("p");
-  let bookRead = document.createElement("p");
-  bookTitle.textContent = book.title;
-  bookAuthor.textContent = book.author;
-  bookPages.textContent = book.pages;
-  bookRead.textContent = book.read;
+  let bookRead = document.createElement("button");
+  bookTitle.textContent = "Title: " + book.title;
+  bookAuthor.textContent = "Author: " + book.author;
+  bookPages.textContent = "Pages: " + book.pages;
+  bookRead.textContent = book.read ? "Read" : "Not Read";
+  bookElement.dataset.read = book.read;
   bookElement.append(bookTitle, bookAuthor, bookPages, bookRead);
-  bookElement.className = book.read ? "book read" : "book not-read";
   bookContainer.appendChild(bookElement);
 }
