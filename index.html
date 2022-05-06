@@ -17,33 +17,37 @@
   <body>
     <div id="page-container">
       <div id="title-bar">
-        <h1>Library App</h1>
-        <p>A small app to keep track of your books!</p>
-        <button id="btn-add-book">Add Book</button>
-        <form action="#">
-          <label for="title">Title</label>
-          <input
-            type="text"
-            placeholder="The Fellowship of the Ring"
-            name="title"
-            id="title"
-          />
-          <label for="author">Author</label>
-          <input
-            type="text"
-            placeholder="J. R. R. Tolkien"
-            name="author"
-            id="author"
-          />
-          <label for="pages">Pages</label>
-          <input type="text" placeholder="423" name="pages" id="pages" />
-          <label>Have you read it?</label>
-          <label for="Yes">Yes</label>
-          <input type="radio" name="read" value="true" />
-          <label for="No">No</label>
-          <input type="radio" name="read" value="false" checked />
-          <button type="button" id="btn-submit">Submit</button>
-        </form>
+        <div id="title-container">
+          <h1>Library App</h1>
+          <p>A small app to keep track of your books!</p>
+        </div>
+        <div id="btn-form-container">
+          <button id="btn-add-book">Add Book</button>
+          <form action="#">
+            <label for="title">Title</label>
+            <input
+              type="text"
+              placeholder="The Fellowship of the Ring"
+              name="title"
+              id="title"
+            />
+            <label for="author">Author</label>
+            <input
+              type="text"
+              placeholder="J. R. R. Tolkien"
+              name="author"
+              id="author"
+            />
+            <label for="pages">Pages</label>
+            <input type="text" placeholder="423" name="pages" id="pages" />
+            <label>Have you read it?</label>
+            <label for="Yes">Yes</label>
+            <input type="radio" name="read" value="true" />
+            <label for="No">No</label>
+            <input type="radio" name="read" value="false" checked />
+            <button type="button" id="btn-submit">Submit</button>
+          </form>
+        </div>
       </div>
       <div id="book-container"></div>
     </div>
