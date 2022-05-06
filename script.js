@@ -29,14 +29,24 @@ class Book {
 }
 
 window.onload = function () {
+  let form = document.querySelector("form");
   for (let item of myLibrary) {
     let book = new Book(item.title, item.author, item.pages, item.read);
     loadBook(book);
   }
   let addBookButton = document.querySelector("#btn-add-book");
   addBookButton.addEventListener("click", () => {
-    let form = document.querySelector("form");
     form.style.visibility = "visible";
+  });
+  let submitButton = document.querySelector("#btn-submit");
+  submitButton.addEventListener("click", () => {
+    form.style.visibility = "hidden";
+    let bookTitle = form.querySelector("#title").value;
+    let bookAuthor = form.querySelector("#author").value;
+    let bookPages = form.querySelector("#pages").value;
+    let bookRead = form.querySelector("input[name='read']:checked").value;
+    bookRead = bookRead === "true";
+    addBookToLibrary(bookTitle, bookAuthor, bookPages, bookRead);
   });
 };
 
