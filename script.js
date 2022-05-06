@@ -30,14 +30,17 @@ class Book {
 
 window.onload = function () {
   let form = document.querySelector("form");
+  //Render every book in array
   for (let item of myLibrary) {
     let book = new Book(item.title, item.author, item.pages, item.read);
     loadBook(book);
   }
+  //Display form on click
   let addBookButton = document.querySelector("#btn-add-book");
   addBookButton.addEventListener("click", () => {
     form.style.visibility = "visible";
   });
+  //Add book to array, render and hide form on click
   let submitButton = document.querySelector("#btn-submit");
   submitButton.addEventListener("click", () => {
     form.style.visibility = "hidden";
@@ -57,28 +60,34 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function loadBook(book) {
+  //Create HTML elements for books
   const bookContainer = document.querySelector("#book-container");
   let bookElement = document.createElement("div");
   let bookTitle = document.createElement("p");
   let bookAuthor = document.createElement("p");
   let bookPages = document.createElement("p");
   let bookRead = document.createElement("button");
+  //Change read state and update element in array on click
   bookRead.addEventListener("click", () => {
-    console.log("a");
-    if (bookRead.parentNode.dataset.read == "true") {
-      bookRead.parentNode.dataset.read = "false";
+    let parent = bookRead.parentNode;
+    if (parent.dataset.read == "true") {
+      parent.dataset.read = "false";
+      myLibrary[parent.dataset.index].read = false;
       bookRead.textContent = "Not Read";
     } else {
-      bookRead.parentNode.dataset.read = "true";
+      parent.dataset.read = "true";
+      myLibrary[parent.dataset.index].read = true;
       bookRead.textContent = "Read";
     }
   });
+  //Fill elements with the provided data and render them
   bookTitle.textContent = "Title: " + book.title;
   bookAuthor.textContent = "Author: " + book.author;
   bookPages.textContent = "Pages: " + book.pages;
   bookRead.textContent = book.read ? "Read" : "Not Read";
   bookElement.className = "book";
   bookElement.dataset.read = book.read;
+  bookElement.dataset.index = myLibrary.length;
   bookElement.append(bookTitle, bookAuthor, bookPages, bookRead);
   bookContainer.appendChild(bookElement);
 }
