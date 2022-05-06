@@ -76,18 +76,15 @@ function loadBook(book) {
       parent.dataset.read = "false";
       console.log(bookElement.dataset.index);
       myLibrary[bookElement.dataset.index].read = false;
-      bookRead.textContent = "Not Read";
     } else {
       parent.dataset.read = "true";
       myLibrary[bookElement.dataset.index].read = true;
-      bookRead.textContent = "Read";
     }
   });
   //Fill elements with the provided data and render them
   bookTitle.textContent = "Title: " + book.title;
   bookAuthor.textContent = "Author: " + book.author;
   bookPages.textContent = "Pages: " + book.pages;
-  bookRead.textContent = book.read ? "Read" : "Not Read";
   bookElement.className = "book";
   bookElement.dataset.read = book.read;
   bookElement.dataset.index = bookIndex;
