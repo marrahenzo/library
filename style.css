@@ -1,3 +1,27 @@
+body {
+  background-color: rgb(220, 239, 255);
+}
+
+#page-container {
+  display: grid;
+  grid-template-rows: 320px 1fr;
+}
+
+#title-bar {
+  display: grid;
+  grid-template-rows: 200px 100px;
+  text-align: center;
+}
+
+#title-container {
+  font-family: "Radio Canada";
+  font-size: 25px;
+}
+
+#title-container p {
+  font-size: 20px;
+}
+
 #book-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -12,10 +36,13 @@
   font-size: 20px;
   text-align: center;
   background-color: rgb(230, 230, 230);
+  max-height: 200px;
 }
 
 .book:hover {
   box-shadow: 1px 1px 10px;
+  transform: translateY(-7px);
+  transition: all 0.3s ease 0s;
 }
 
 .book[data-read="true"] {
@@ -51,6 +78,7 @@
   font-size: 20px;
   color: white;
   background: linear-gradient(50deg, rgb(155, 155, 155), rgb(187, 187, 187));
+  margin-bottom: 20px;
 }
 
 #btn-add-book:hover {
