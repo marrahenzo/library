@@ -69,6 +69,7 @@ function loadBook(book) {
   let bookAuthor = document.createElement("p");
   let bookPages = document.createElement("p");
   let bookRead = document.createElement("button");
+  let bookDelete = document.createElement("img");
   //Change read state and update element in array on click
   bookRead.addEventListener("click", () => {
     let parent = bookRead.parentNode;
@@ -81,14 +82,32 @@ function loadBook(book) {
       myLibrary[bookElement.dataset.index].read = true;
     }
   });
+  //Remove book from array and DOM, and re-index all books on screen
+  bookDelete.addEventListener("click", () => {
+    myLibrary.splice(bookElement.dataset.index, 1);
+    bookDelete.parentElement.remove();
+    let counter = 0;
+    let booksInPage = document.querySelectorAll(".book");
+    for (let book of booksInPage) {
+      console.log(book.dataset.index);
+      book.dataset.index = counter;
+      console.log(book.dataset.index);
+      counter++;
+    }
+  });
   //Fill elements with the provided data and render them
   bookTitle.textContent = "Title: " + book.title;
+  bookTitle.id = "title";
   bookAuthor.textContent = "Author: " + book.author;
+  bookAuthor.id = "author";
   bookPages.textContent = "Pages: " + book.pages;
+  bookPages.id = "pages";
+  bookDelete.src = "./media/delete.png";
+  bookDelete.alt = "Delete";
   bookElement.className = "book";
   bookElement.dataset.read = book.read;
   bookElement.dataset.index = bookIndex;
-  bookElement.append(bookTitle, bookAuthor, bookPages, bookRead);
+  bookElement.append(bookTitle, bookAuthor, bookPages, bookRead, bookDelete);
   bookContainer.appendChild(bookElement);
   bookIndex++;
 }
