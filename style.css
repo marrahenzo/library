@@ -23,6 +23,7 @@ body {
 }
 
 form {
+  visibility: hidden;
   display: flex;
   gap: 10px;
   justify-content: center;
@@ -126,6 +127,20 @@ form input {
   background: linear-gradient(50deg, rgb(155, 155, 155), rgb(187, 187, 187));
 }
 
-form {
-  visibility: hidden;
+#credits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-family: "Radio Canada";
+  font-size: 20px;
+}
+
+#credits-text {
+  margin-right: 10px;
+}
+
+#credits-logo:hover {
+  transition: all 0.3s ease-in-out;
+  transform: rotateZ(360deg);
 }
