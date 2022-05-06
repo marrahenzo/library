@@ -33,6 +33,11 @@ window.onload = function () {
     let book = new Book(item.title, item.author, item.pages, item.read);
     loadBook(book);
   }
+  let addBookButton = document.querySelector("#btn-add-book");
+  addBookButton.addEventListener("click", () => {
+    let form = document.querySelector("form");
+    form.style.visibility = "visible";
+  });
 };
 
 function addBookToLibrary(title, author, pages, read) {
