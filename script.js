@@ -28,6 +28,8 @@ class Book {
   }
 }
 
+let bookIndex = 0;
+
 window.onload = function () {
   let form = document.querySelector("form");
   //Render every book in array
@@ -72,11 +74,12 @@ function loadBook(book) {
     let parent = bookRead.parentNode;
     if (parent.dataset.read == "true") {
       parent.dataset.read = "false";
-      myLibrary[parent.dataset.index].read = false;
+      console.log(bookElement.dataset.index);
+      myLibrary[bookElement.dataset.index].read = false;
       bookRead.textContent = "Not Read";
     } else {
       parent.dataset.read = "true";
-      myLibrary[parent.dataset.index].read = true;
+      myLibrary[bookElement.dataset.index].read = true;
       bookRead.textContent = "Read";
     }
   });
@@ -87,7 +90,8 @@ function loadBook(book) {
   bookRead.textContent = book.read ? "Read" : "Not Read";
   bookElement.className = "book";
   bookElement.dataset.read = book.read;
-  bookElement.dataset.index = myLibrary.length;
+  bookElement.dataset.index = bookIndex;
   bookElement.append(bookTitle, bookAuthor, bookPages, bookRead);
   bookContainer.appendChild(bookElement);
+  bookIndex++;
 }
