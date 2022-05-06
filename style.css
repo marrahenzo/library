@@ -55,6 +55,9 @@ form input {
 }
 
 .book {
+  display: grid;
+  grid-template-columns: 1fr 30px;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   border-radius: 20px;
   padding: 20px;
   font-family: "Montserrat", sans-serif;
@@ -62,7 +65,7 @@ form input {
   font-size: 20px;
   text-align: center;
   background-color: rgb(230, 230, 230);
-  max-height: 200px;
+  max-height: 250px;
   transform: translateY(0px);
   transition: all 0.3s ease-in-out;
 }
@@ -80,12 +83,31 @@ form input {
   border: 4px solid rgb(255, 140, 0);
 }
 
+.book #title {
+  padding-left: 30px;
+  grid-row: 1;
+}
+
+.book #author {
+  padding-left: 30px;
+  grid-row: 2;
+}
+
+.book #pages {
+  padding-left: 30px;
+  grid-row: 3;
+}
+
 .book button {
+  grid-row: 4;
   border: none;
   border-radius: 30px;
   font-size: 20px;
   padding: 10px 20px;
   color: white;
+  align-self: center;
+  justify-self: center;
+  margin-left: 30px;
 }
 
 .book[data-read="true"] button {
@@ -102,6 +124,18 @@ form input {
 
 .book[data-read="false"] button::after {
   content: "Not Read";
+}
+
+.book[data-read="true"] img {
+  transition: all 0.3s ease-in-out;
+  filter: invert(46%) sepia(60%) saturate(6110%) hue-rotate(192deg)
+    brightness(106%) contrast(104%);
+}
+
+.book[data-read="false"] img {
+  transition: all 0.3s ease-in-out;
+  filter: invert(54%) sepia(45%) saturate(1316%) hue-rotate(359deg)
+    brightness(99%) contrast(107%);
 }
 
 #btn-add-book {
