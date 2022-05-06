@@ -37,12 +37,12 @@ window.onload = function () {
     let book = new Book(item.title, item.author, item.pages, item.read);
     loadBook(book);
   }
-  //Display form on click
+  //Display form
   let addBookButton = document.querySelector("#btn-add-book");
   addBookButton.addEventListener("click", () => {
     form.style.visibility = "visible";
   });
-  //Add book to array, render and hide form on click
+  //Add book to array, render and hide form
   let submitButton = document.querySelector("#btn-submit");
   submitButton.addEventListener("click", () => {
     form.style.visibility = "hidden";
