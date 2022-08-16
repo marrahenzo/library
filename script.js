@@ -46,14 +46,25 @@ window.onload = function () {
   //Add book to array, render and hide form
   let submitButton = document.querySelector('#btn-submit');
   submitButton.addEventListener('click', () => {
-    modalContainer.classList.remove('visible');
-    let bookTitle = form.querySelector('#title').value;
-    let bookAuthor = form.querySelector('#author').value;
-    let bookPages = form.querySelector('#pages').value;
+    let bookTitle = form.querySelector('#title');
+    let bookAuthor = form.querySelector('#author');
+    let bookPages = form.querySelector('#pages');
     let bookRead = form.querySelector("input[name='read']:checked").value;
-    bookRead = bookRead === 'true';
-    addBookToLibrary(bookTitle, bookAuthor, bookPages, bookRead);
-    clearForm(form);
+    if (
+      bookTitle.reportValidity() &&
+      bookAuthor.reportValidity() &&
+      bookPages.reportValidity()
+    ) {
+      modalContainer.classList.remove('visible');
+      bookRead = bookRead === 'true';
+      addBookToLibrary(
+        bookTitle.value,
+        bookAuthor.value,
+        bookPages.value,
+        bookRead
+      );
+      clearForm(form);
+    }
   });
   //Clear form when cancelling
   let cancelButton = document.querySelector('#btn-cancel');
