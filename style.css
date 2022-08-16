@@ -1,8 +1,11 @@
 body {
+  margin: 0;
   background-color: rgb(220, 239, 255);
+  height: 100vh;
 }
 
 #page-container {
+  height: 100vh;
   display: grid;
   grid-template-rows: 320px 1fr;
 }
@@ -14,7 +17,7 @@ body {
 }
 
 #title-container {
-  font-family: "Radio Canada", sans-serif;
+  font-family: 'Radio Canada', sans-serif;
   font-size: 25px;
 }
 
@@ -22,12 +25,13 @@ body {
   font-size: 20px;
 }
 
+/* TODO: check
 form {
   visibility: hidden;
   display: flex;
   gap: 10px;
   justify-content: center;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
 }
 
@@ -39,7 +43,7 @@ form input {
 
 #btn-submit {
   border: none;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   border-radius: 20px;
   background-color: rgb(0, 140, 255);
   color: white;
@@ -47,11 +51,12 @@ form input {
   padding-left: 10px;
   padding-right: 10px;
 }
-
+*/
 #book-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 15px;
+  margin: 0px 20px;
 }
 
 .book {
@@ -60,7 +65,7 @@ form input {
   grid-template-rows: 1fr 1fr 1fr 1fr;
   border-radius: 20px;
   padding: 20px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   font-size: 20px;
   text-align: center;
@@ -75,11 +80,11 @@ form input {
   transform: translateY(-7px);
 }
 
-.book[data-read="true"] {
+.book[data-read='true'] {
   border: 4px solid rgb(0, 140, 255);
 }
 
-.book[data-read="false"] {
+.book[data-read='false'] {
   border: 4px solid rgb(255, 140, 0);
 }
 
@@ -110,29 +115,29 @@ form input {
   margin-left: 30px;
 }
 
-.book[data-read="true"] button {
+.book[data-read='true'] button {
   background: linear-gradient(50deg, rgb(0, 140, 255), rgb(0, 255, 255));
 }
 
-.book[data-read="false"] button {
+.book[data-read='false'] button {
   background: linear-gradient(50deg, rgb(255, 0, 0), rgb(255, 140, 0));
 }
 
-.book[data-read="true"] button::after {
-  content: "Read";
+.book[data-read='true'] button::after {
+  content: 'Read';
 }
 
-.book[data-read="false"] button::after {
-  content: "Not Read";
+.book[data-read='false'] button::after {
+  content: 'Not Read';
 }
 
-.book[data-read="true"] img {
+.book[data-read='true'] img {
   transition: all 0.3s ease-in-out;
   filter: invert(46%) sepia(60%) saturate(6110%) hue-rotate(192deg)
     brightness(106%) contrast(104%);
 }
 
-.book[data-read="false"] img {
+.book[data-read='false'] img {
   transition: all 0.3s ease-in-out;
   filter: invert(54%) sepia(45%) saturate(1316%) hue-rotate(359deg)
     brightness(99%) contrast(107%);
@@ -142,7 +147,7 @@ form input {
   border: none;
   border-radius: 20px;
   padding: 10px 20px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
   font-size: 20px;
   color: white;
@@ -161,13 +166,24 @@ form input {
   background: linear-gradient(50deg, rgb(155, 155, 155), rgb(187, 187, 187));
 }
 
+#modal-container {
+  background-color: rgba(117, 117, 117, 0.3);
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+#add-book-modal {
+}
+
 #credits {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  font-family: "Radio Canada";
+  font-family: 'Radio Canada';
   font-size: 20px;
+  bottom: 0px;
 }
 
 #credits-text {
